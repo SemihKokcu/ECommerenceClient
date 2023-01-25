@@ -12,6 +12,8 @@ export class AppComponent {
   constructor(private toastr:CustomToastrService){
     toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Success,position:ToastrPosition.BottomCenter});
     toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Error,position:ToastrPosition.BottomLeft});
+    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Info,position:ToastrPosition.BottomRight});
+    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Warning,position:ToastrPosition.TopCenter});
 
 
   }
