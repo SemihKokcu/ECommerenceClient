@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-declare var $:any
+declare var $:any // jquery denmek için
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,4 +8,4 @@ declare var $:any
 export class AppComponent {
   title = 'ECommerenceClient';
 }
-$(document).ready(()=>{alert("Hello")})
+// $(document).ready(()=>{alert("Hello")})
