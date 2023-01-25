@@ -14,7 +14,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {path:"",component:OrdersComponent},
 
-    ])
+    ]),
+
   ]
 })
 export class OrdersModule { }
