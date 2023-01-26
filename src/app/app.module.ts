@@ -8,10 +8,11 @@ import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
 export class AppModule { }

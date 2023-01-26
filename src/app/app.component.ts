@@ -10,10 +10,10 @@ declare var $:any // jquery denmek için
 export class AppComponent {
   title = 'ECommerenceClient';
   constructor(private toastr:CustomToastrService){
-    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Success,position:ToastrPosition.BottomCenter});
-    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Error,position:ToastrPosition.BottomLeft});
-    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Info,position:ToastrPosition.BottomRight});
-    toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Warning,position:ToastrPosition.TopCenter});
+    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Success,position:ToastrPosition.BottomCenter});
+    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Error,position:ToastrPosition.BottomLeft});
+    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Info,position:ToastrPosition.BottomRight});
+    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Warning,position:ToastrPosition.TopCenter});
 
 
   }
