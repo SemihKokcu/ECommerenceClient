@@ -21,3 +21,5 @@ export class AppComponent {
 
 }
 // $(document).ready(()=>{alert("Hello")})
+$.get("https://localhost:7243/api/Product",data=>{console.log(data)})
+
