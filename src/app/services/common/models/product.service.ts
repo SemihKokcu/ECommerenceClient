@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CreateProduct } from 'src/app/contracts/create_product';
+import { List_Product } from 'src/app/contracts/list_products';
 import { HttpClientService } from '../http-client.service';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ProductService {
 
   constructor(private httpClientService:HttpClientService) { }
 
-  createProduct(product:CreateProduct,successCallBack?:any,errorCallBack?:any)
+  createProduct(product:CreateProduct,successCallBack?:any,errorCallBack?:(errorMessage:string)=>void)
   {
     this.httpClientService.post({controller:"products"},{name:product.name,price:product.price,stock:product.stock})
     .subscribe(response=>{
@@ -26,5 +27,19 @@ export class ProductService {
         })
         errorCallBack(message);
     });
+  }
+
+  async getProductList (page:number,size:number,successCallBack?:()=>void,errorCallBack?:(errorMessage:string)=>void)
+  :Promise<{totalCount:number,products:List_Product[]}> // c# task gibi promise ile async yapabiliriz
+  {
+    const promiseData:Promise<{totalCount:number,products:List_Product[]}> = this.httpClientService.get<{totalCount:number,products:List_Product[]}>({
+      controller:"products",
+      queryString:`page=${page}&size=${size}`
+    }).toPromise();
+
+    promiseData.then(d=>successCallBack())
+    .catch((errorResponse:HttpErrorResponse)=>errorCallBack(errorResponse.message))
+
+    return await promiseData;
   }
 }
