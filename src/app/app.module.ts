@@ -16,6 +16,7 @@ import { DeleteDirective } from './directives/admin/delete.directive';
   declarations: [
     AppComponent,
 
+
   ],
   imports: [
     BrowserModule,
