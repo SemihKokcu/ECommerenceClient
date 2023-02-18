@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {  Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
+import { CreateProduct } from 'src/app/contracts/create_product';
 import { List_Product } from 'src/app/contracts/list_products';
 import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
-
+declare var $:any;
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -18,7 +19,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     super(spinner);
     }
 
-  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'CreatedDate','UpdatedDate'];
+  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'CreatedDate','UpdatedDate',"edit","delete"];
   dataSource:MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,9 +27,14 @@ export class ListComponent extends BaseComponent implements OnInit {
    async ngOnInit()
   {
     await this.getProducts()
-
   }
 
+  // delete(id,event)
+  // {
+  //   const icon:HTMLElement = event.srcElement;
+  //   $(icon.parentElement.parentElement).fadeOut(2000);
+  //   alert(id)
+  // }
   async getProducts()
   {
     this.showSpinner(SpinnerType.BallAtom);
