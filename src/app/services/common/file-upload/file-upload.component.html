@@ -1,0 +1,63 @@
+<div class="center">
+  <ngx-file-drop dropZoneLabel="Drop files here" [accept]="options.accept" (onFileDrop)="selectedFile($event)"
+  >
+  <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+    <div>
+      <strong>
+        {{options.explanation}}
+      </strong><br>
+      <button type="button" class="btn btnIcon1 mt-2 mb-5 mx-auto px-5"
+        (click)="openFileSelector()">Seç</button>
+      <!-- <p class="fs-12">
+        <strong class="text-orange mr-1">Note:</strong>
+        <span>Maximum 5 documents, having 20 MB each can be uploaded.</span>
+      </p> -->
+    </div>
+  </ng-template>
+</ngx-file-drop>
+<!-- <div class="col-12 col-lg-12">
+  <ng-container *ngIf="uploadedDocuments.length > 0">
+    <label class="col-form-label">Uploaded Files</label>
+    <div class="row">
+      <div class=" uploadedDocs" *ngFor="let item of uploadedDocuments; let i=index">
+        <img class="imgsrc" src="{{item.imageUrl}}" />
+        <div class="content">
+          <p><strong>{{item.fileName}}</strong></p>
+          <p>File Size: {{item.fileSize}}KB</p>
+          <p class="delete pointer" (click)="deleteDoc(i)"><img src="{{imagePath}}svg/delete1.svg" /> Delete
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div> -->
+<hr>
+<div class="col-12 col-lg-12">
+  <label class="col-form-label">{{'uploadedDocuments'}}</label>
+
+  <div class="upload-table table-responsive mb-3">
+    <table class="table no-border" aria-describedby="Uploaded files">
+      <thead>
+        <tr>
+          <th scope="col">{{"#"}}</th>
+          <th scope="col">{{'fileName'}}</th>
+        </tr>
+      </thead>
+      <tbody class="upload-name-style">
+        <tr *ngFor="let item of files; let i=index">
+          <td>{{i +1}}</td>
+          <td>
+            <!-- <div *ngIf="item.type === 'image/png'">
+              <img [src]="baseUrl + 'UserAPI/' + item.imageurl" width="100px" height="100px"/>
+            </div> -->
+            <!-- <div *ngIf="item.type !== 'image/png'"> -->
+            <div>
+              {{item.relativePath}}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
