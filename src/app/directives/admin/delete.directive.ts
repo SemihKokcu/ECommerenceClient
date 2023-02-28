@@ -25,7 +25,7 @@ export class DeleteDirective {
     )
     {
       const img = _renderer.createElement("img");
-      img.setAttribute("src","../../../../assets/delete.png");
+      img.setAttribute("src","../../../../assets/delete-icon.png");
       img.setAttribute("style","cursor:pointer;");
       img.width=25;
       img.heigth=25;

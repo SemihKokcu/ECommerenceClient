@@ -5,7 +5,9 @@ import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { CreateProduct } from 'src/app/contracts/create_product';
 import { List_Product } from 'src/app/contracts/list_products';
+import { SelectProductImageDialogComponent } from 'src/app/dialogs/select-product-image-dialog/select-product-image-dialog.component';
 import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
+import { DialogService } from 'src/app/services/common/dialog.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
 declare var $:any;
 @Component({
@@ -15,11 +17,17 @@ declare var $:any;
 })
 export class ListComponent extends BaseComponent implements OnInit {
 
-  constructor(private alertifyService:AlertifyService,spinner:NgxSpinnerService, private productService:ProductService) {
+  constructor(
+    private alertifyService:AlertifyService,
+    spinner:NgxSpinnerService,
+    private productService:ProductService,
+    private dialogService:DialogService
+
+    ) {
     super(spinner);
     }
 
-  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'CreatedDate','UpdatedDate',"edit","delete"];
+  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'CreatedDate','UpdatedDate',"images","edit","delete"];
   dataSource:MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -29,12 +37,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     await this.getProducts()
   }
 
-  // delete(id,event)
-  // {
-  //   const icon:HTMLElement = event.srcElement;
-  //   $(icon.parentElement.parentElement).fadeOut(2000);
-  //   alert(id)
-  // }
+
   async getProducts()
   {
     this.showSpinner(SpinnerType.BallAtom);
@@ -53,5 +56,15 @@ export class ListComponent extends BaseComponent implements OnInit {
   async pageChange()
   {
     await this.getProducts();
+  }
+
+  addProductImage(id:string){
+    this.dialogService.openDialog({
+      componentType:SelectProductImageDialogComponent,
+      data:id,
+      options:{
+         width:"1500px"
+      }
+    })
   }
 }
