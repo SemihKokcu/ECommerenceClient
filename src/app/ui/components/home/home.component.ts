@@ -12,7 +12,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   constructor(spinner:NgxSpinnerService) {super(spinner) }
 
   ngOnInit(): void {
-    this.showSpinner(SpinnerType.BallScaleMultiple);
+    // this.showSpinner(SpinnerType.BallScaleMultiple);
   }
 
 }
