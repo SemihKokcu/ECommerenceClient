@@ -14,7 +14,7 @@
                             <div class="d-flex flex-row align-items-center mb-2">
                               <div class="form-outline flex-fill mb-0">
                                   <label class="form-label" for="name">Ad *</label>
-                                  <input [ngClass]="{'is-invalid':submitted && component.name.errors}" formControlName="name" type="text" id="name" class="form-control" />
+                                  <input  [ngClass]="{'is-invalid':submitted && component.name.errors}" formControlName="name" type="text" id="name" class="form-control" />
                                   <small *ngIf="submitted && component.name.errors?.required" id="name" class="form-text invalid-feedback" style="color:red;">Ad  boş olamaz</small>
                                   <small *ngIf="submitted && (component.name.errors?.minlength || component.name.errors?.maxlength)" id="name" class="form-text invalid-feedback" style="color:red;">Ad  3-50 karakter arasında olmalıdır</small>
                               </div>
