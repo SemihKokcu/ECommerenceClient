@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { AuthService } from './services/common/auth.service';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from './services/ui/custom-toastr.service';
 declare var $:any // jquery denmek için
 @Component({
@@ -8,14 +9,16 @@ declare var $:any // jquery denmek için
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ECommerenceClient';
-  constructor(private toastr:CustomToastrService){
-    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Success,position:ToastrPosition.BottomCenter});
-    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Error,position:ToastrPosition.BottomLeft});
-    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Info,position:ToastrPosition.BottomRight});
-    // toastr.message("Hello world","Semih",{messageType:ToastrMessageType.Warning,position:ToastrPosition.TopCenter});
+  constructor(public authService:AuthService,private toastrService:CustomToastrService,private router:Router){
+    authService.identityCheck();
 
+  }
 
+  signOut(){
+    localStorage.removeItem("accessToken");
+    this.authService.identityCheck();
+    this.router.navigate(['']);
+    this.toastrService.message("Oturum sonlandırıldı","Kullanıcı çıkış yaptı",{messageType:ToastrMessageType.Info,position:ToastrPosition.TopLeft})
   }
 
 

@@ -36,7 +36,7 @@ export class UserService {
       localStorage.setItem("accessToken",tokenResponse.token.accessToken);
       this.toastrService.message("Kullanıcı girişi başarılı bir şekilde sağlanmıştır","Giriş Başarılı",{
         messageType:ToastrMessageType.Success,
-        position:ToastrPosition.TopRight
+        position:ToastrPosition.TopLeft
       })
     }
    
