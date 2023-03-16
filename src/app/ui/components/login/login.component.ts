@@ -24,7 +24,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   }
 
-  async login(userNameOrEmail,password){
+  async login(userNameOrEmail:string,password:string){
     this.showSpinner(SpinnerType.BallAtom);
       this.userService.login(userNameOrEmail,password,()=>{
         this.hideSpinner(SpinnerType.BallAtom);

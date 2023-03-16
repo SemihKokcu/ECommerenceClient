@@ -38,6 +38,7 @@ export class ProductService {
     const promiseData:Promise<{totalCount:number,products:List_Product[]}> = this.httpClientService.get<{totalCount:number,products:List_Product[]}>({
       controller:"products",
       queryString:`page=${page}&size=${size}`
+      
     }).toPromise();
 
     promiseData.then(d=>successCallBack())

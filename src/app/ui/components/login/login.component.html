@@ -9,11 +9,11 @@
 
                           <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-2 mt-3">GİRİŞ YAP</p>
 
-                          <div class="mx-1 mx-md-1">
+                          <div class="form-group mx-1 mx-md-1">
                               <div class="d-flex flex-row align-items-center mb-2">
                                   <div class="form-outline flex-fill mb-0">
                                       <label class="form-label" for="userName">Kullanıcı Adı & E mail*</label>
-                                      <input #txtUserNameOrEmail formControlName="userName" type="text" id="userName" class="form-control" />
+                                      <input #txtUsernameOrEmail type="text" id="userName" class="form-control" />
                                       <small  id="userName" class="form-text invalid-feedback" style="color:red;">Kullanıcı adı boş olamaz</small>
                                       <small  id="userName" class="form-text invalid-feedback" style="color:red;">Kullanıcı adı  5-50 karakter arasında olmalıdır</small>
                                   </div>
@@ -31,7 +31,7 @@
                               <div class="d-flex flex-row align-items-center mb-2">
                                   <div class="form-outline flex-fill mb-0">
                                       <label  class="form-label" for="password">Şifre *</label>
-                                      <input #txtPassword formControlName="password"  type="password" id="password" class="form-control" />
+                                      <input #txtPassword  type="password" id="password" class="form-control" />
                                       <small  id="password" class="form-text invalid-feedback" style="color:red;">Lütfen şifre oluşturunuz</small>
                                       <small  id="password" class="form-text invalid-feedback" style="color:red;">Şifre uzunluğu 6-30 karakter arasında olmalıdır</small>
                                   </div>
@@ -40,7 +40,7 @@
 
 
                           <div class="d-grid gap-2 mt-3">
-                              <button type="submit" class="btn btn-primary btn-block" (click)="login(txtUserNameOrEmail,txtPassword)">Giriş yap</button>
+                              <button type="submit" class="btn btn-primary btn-block" (click)="login(txtUsernameOrEmail.value,txtPassword.value)">Giriş yap</button>
                           </div>
 
                       </div>
