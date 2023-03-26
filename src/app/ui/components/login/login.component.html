@@ -38,11 +38,17 @@
                               </div>
 
 
+                           
 
                           <div class="d-grid gap-2 mt-3">
                               <button type="submit" class="btn btn-primary btn-block" (click)="login(txtUsernameOrEmail.value,txtPassword.value)">Giriş yap</button>
                           </div>
-
+                          <div>
+                            
+                            <div class="d-grid gap-2 mt-3">
+                                <google-signin-button [selectable]="showGoogleLogin"></google-signin-button>
+                            </div>
+                          </div>
                       </div>
                   </div>
                      <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
