@@ -20,15 +20,14 @@ export default class RegisterComponent extends BaseComponent implements OnInit {
   }
   ngOnInit(): void {
       this.frm = this.formBuilder.group({
-        name: ["",[Validators.required,Validators.maxLength(30),Validators.minLength(3)]],
-        surName:["",[Validators.required,Validators.maxLength(30),Validators.minLength(2)]],
+        nameSurname: ["",[Validators.required,Validators.maxLength(30),Validators.minLength(3)]],
         userName:["",[Validators.required,Validators.maxLength(30),Validators.minLength(5)]],
         email:["",[Validators.required,Validators.maxLength(250),Validators.email]],
         password:["",[Validators.required,Validators.maxLength(30),Validators.minLength(6)]],
-        rePassword:["",[Validators.required,Validators.maxLength(30),Validators.minLength(6)]]
+        passwordConfirm:["",[Validators.required,Validators.maxLength(30),Validators.minLength(6)]]
       },{validators:(group:AbstractControl):ValidationErrors|null=>{
         let password = group.get("password").value;
-        let rePassword = group.get("rePassword").value;
+        let rePassword = group.get("passwordConfirm").value;
         return password === rePassword ?null:{notSame:true};
       }});
   }

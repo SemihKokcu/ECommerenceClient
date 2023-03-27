@@ -13,27 +13,19 @@
 
                             <div class="d-flex flex-row align-items-center mb-2">
                               <div class="form-outline flex-fill mb-0">
-                                  <label class="form-label" for="name">Ad *</label>
-                                  <input  [ngClass]="{'is-invalid':submitted && component.name.errors}" formControlName="name" type="text" id="name" class="form-control" />
-                                  <small *ngIf="submitted && component.name.errors?.required" id="name" class="form-text invalid-feedback" style="color:red;">Ad  boş olamaz</small>
-                                  <small *ngIf="submitted && (component.name.errors?.minlength || component.name.errors?.maxlength)" id="name" class="form-text invalid-feedback" style="color:red;">Ad  3-50 karakter arasında olmalıdır</small>
+                                  <label class="form-label" for="nameSurname">Ad Soyad *</label>
+                                  <input  [ngClass]="{'is-invalid':submitted && component.nameSurname.errors}" formControlName="nameSurname" type="text" id="nameSurname" class="form-control" />
+                                  <small *ngIf="submitted && component.nameSurname.errors?.required" id="nameSurname" class="form-text invalid-feedback" style="color:red;">Ad  boş olamaz</small>
+                                  <small *ngIf="submitted && (component.nameSurname.errors?.minlength || component.nameSurname.errors?.maxlength)" id="nameSurname" class="form-text invalid-feedback" style="color:red;">Ad  3-50 karakter arasında olmalıdır</small>
                               </div>
                             </div>
 
-                            <div class="d-flex flex-row align-items-center mb-2">
-                              <div class="form-outline flex-fill mb-0">
-                                  <label class="form-label" for="surName">Soyad *</label>
-                                  <input  [ngClass]="{'is-invalid':submitted && component.surName.errors}" formControlName="surName" type="text" id="surName" class="form-control" />
-                                  <small *ngIf="submitted && component.surName.errors?.required" id="surName" class="form-text invalid-feedback" style="color:red;">Soyad  boş olamaz</small>
-                                  <small *ngIf="submitted && (component.surName.errors?.minlength || component.name.errors?.maxlength)" id="surName" class="form-text invalid-feedback" style="color:red;">Soyad   2-50 karakter arasında olmalıdır</small>
-                              </div>
-                            </div>
                               <div class="d-flex flex-row align-items-center mb-2">
                                   <div class="form-outline flex-fill mb-0">
                                       <label class="form-label" for="userName">Kullanıcı Adı *</label>
                                       <input [ngClass]="{'is-invalid':submitted && component.userName.errors}" formControlName="userName" type="text" id="userName" class="form-control" />
                                       <small *ngIf="submitted && component.userName.errors?.required" id="userName" class="form-text invalid-feedback" style="color:red;">Kullanıcı adı boş olamaz</small>
-                                      <small *ngIf="submitted && (component.userName.errors?.minlength || component.name.errors?.maxlength)" id="userName" class="form-text invalid-feedback" style="color:red;">Kullanıcı adı  5-50 karakter arasında olmalıdır</small>
+                                      <small *ngIf="submitted && (component.userName.errors?.minlength || component.userName.errors?.maxlength)" id="userName" class="form-text invalid-feedback" style="color:red;">Kullanıcı adı  5-50 karakter arasında olmalıdır</small>
                                   </div>
                               </div>
 
@@ -57,9 +49,9 @@
 
                               <div class="d-flex flex-row align-items-center mb-2">
                                   <div class="form-outline flex-fill mb-0">
-                                      <label  class="form-label" for="rePassword">Şifre Tekrar *</label>
-                                      <input [ngClass]="{'is-invalid':submitted && component.rePassword.errors}" placeholder="Şifreyi tekrar giriniz" formControlName="rePassword"  type="password" id="rePassword" class="form-control" />
-                                      <small *ngIf="submitted && frm.errors?.notSame" id="rePassword" class="form-text" style="color:red;">Şireler eşleşmedi</small>
+                                      <label  class="form-label" for="passwordConfirm">Şifre Tekrar *</label>
+                                      <input [ngClass]="{'is-invalid':submitted && component.passwordConfirm.errors}" placeholder="Şifreyi tekrar giriniz" formControlName="passwordConfirm"  type="password" id="passwordConfirm" class="form-control" />
+                                      <small *ngIf="submitted && frm.errors?.notSame" id="passwordConfirm" class="form-text" style="color:red;">Şireler eşleşmedi</small>
 
                                   </div>
                               </div>

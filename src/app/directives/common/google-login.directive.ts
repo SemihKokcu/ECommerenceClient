@@ -15,10 +15,11 @@ export class GoogleLoginDirective implements OnInit {
     if (!this.option) return;
     this.socialAuthService.initState.pipe(take(1)).subscribe(() => {
         google.accounts.id.renderButton(this.el.nativeElement, {
-            type: 'icon',
+            type: 'standart',
             size: 'large',
-            // text: 'signin_with',
-            // theme: 'filled_blue'
+            width:'300',
+             text: 'signin_with',
+             theme: 'filled_blue'
         });
     });
 }

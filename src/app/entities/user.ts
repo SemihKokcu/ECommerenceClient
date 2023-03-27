@@ -1,8 +1,7 @@
 export class User {
-  name:string;
-  surName:string;
+  nameSurname:string;
   userName:string;
   email:string;
   password:string;
-  rePassword:string
+  passwordConfirm:string
 }
