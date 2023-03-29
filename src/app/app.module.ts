@@ -8,7 +8,7 @@ import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SocialLoginModule, SocialAuthServiceConfig, FacebookLoginProvider } from '@abacritt/angularx-social-login';
 import {
@@ -16,6 +16,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { LoginComponent } from './ui/components/login/login.component';
 import { GoogleLoginDirective } from './directives/common/google-login.directive';
+import { HttpErrorHandlerInterceptorService } from './services/common/http-error-handler-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { GoogleLoginDirective } from './directives/common/google-login.directive
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
+    {provide:HTTP_INTERCEPTORS,useClass:HttpErrorHandlerInterceptorService,multi:true}
   ],
   bootstrap: [AppComponent],
    schemas: [CUSTOM_ELEMENTS_SCHEMA]
