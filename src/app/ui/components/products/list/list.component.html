@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-md-10">
+      <div class="product-card" *ngFor="let product of products;">
+        <div class="card col-md-3 col-3 mt-5">
+          <img
+
+            class="mx-auto img-thumbnail"
+            *ngIf="!product.productImageFiles.length" src="../../../../../assets/image-not-available.png"
+            width="auto"
+            height="auto"
+          />
+          <img
+          class="mx-auto img-thumbnail"
+          *ngIf="product.productImageFiles.length" src="{{baseStroageUrl.url}}/{{product.imagePath}}"
+          width="auto"
+          height="auto"
+          />
+          <div class="card-body text-center mx-auto">
+            <div class="cvp">
+              <h3 class="card-title font-weight-bold">{{product.name}}</h3>
+              <p class="card-text">{{product.price|currency:'₺'}}</p>
+              <p class="card-text">Stock:{{product.stock}}</p>
+              <a href="#" class="btn details px-auto">Detaylar</a><br />
+              <a href="#" class="btn cart px-auto">Sepete Ekle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+        
+    </div>
+    <div class="col-md-1">
+        <div class="pagination p1 d-flex align-items-end">
+              <a class="mx-3"><li>PageNo:{{currentPageNo}}/{{totalPageCount}}</li></a>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <div class="pagination p1">
+        <ul>
+          <a class="mx-3" [routerLink]="['/products',currentPageNo-1 <=0 ?1:currentPageNo-1]"><li>Previous</li></a>
+          <a routerLinkActive="is-active" [routerLink]="['/products',pageNo]" *ngFor="let pageNo of pageList"><li >{{pageNo}}</li></a>
+          <a class="mx-3"[routerLink]="['/products',currentPageNo+1 >=totalPageCount ? totalPageCount : currentPageNo+1]"><li>Next</li></a>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

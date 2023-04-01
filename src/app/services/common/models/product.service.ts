@@ -33,9 +33,9 @@ export class ProductService {
   }
 
   async getProductList (page:number,size:number,successCallBack?:()=>void,errorCallBack?:(errorMessage:string)=>void)
-  :Promise<{totalCount:number,products:List_Product[]}> // c# task gibi promise ile async yapabiliriz
+  :Promise<{totalProductCount:number,products:List_Product[]}> // c# task gibi promise ile async yapabiliriz
   {
-    const promiseData:Promise<{totalCount:number,products:List_Product[]}> = this.httpClientService.get<{totalCount:number,products:List_Product[]}>({
+    const promiseData:Promise<{totalProductCount:number,products:List_Product[]}> = this.httpClientService.get<{totalProductCount:number,products:List_Product[]}>({
       controller:"products",
       queryString:`page=${page}&size=${size}`
       
@@ -73,6 +73,16 @@ export class ProductService {
     },id);
 
     await firstValueFrom(deleteObservable);
+    successCallBack();
+  }
+
+  async changeShowcaseImage(imageId: string, productId: string, successCallBack?: () => void): Promise<void> {
+    const changeShowcaseImageObservable = this.httpClientService.get({
+      controller: "products",
+      action: "ChangeShowcaseImage",
+      queryString: `imageId=${imageId}&productId=${productId}`
+    });
+    await firstValueFrom(changeShowcaseImageObservable);
     successCallBack();
   }
 }
