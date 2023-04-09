@@ -23,7 +23,7 @@
               <p class="card-text">{{product.price|currency:'₺'}}</p>
               <p class="card-text">Stock:{{product.stock}}</p>
               <a href="#" class="btn details px-auto">Detaylar</a><br />
-              <a href="#" class="btn cart px-auto">Sepete Ekle</a>
+              <a class="btn cart px-auto" (click)="addToBasket(product)">Sepete Ekle</a>
             </div>
           </div>
         </div>

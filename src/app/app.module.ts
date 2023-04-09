@@ -21,7 +21,7 @@ import { HttpErrorHandlerInterceptorService } from './services/common/http-error
   declarations: [
     AppComponent,
     LoginComponent,
-    GoogleLoginDirective
+    GoogleLoginDirective,
   ],
   imports: [
     SocialLoginModule,

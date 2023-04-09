@@ -1,23 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {  NgxSpinnerService } from 'ngx-spinner';
+import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { BaseUrl } from 'src/app/constants/base-url';
+import { CreateBasketItem } from 'src/app/contracts/basket/create-basket-item';
+import { ListBasketItem } from 'src/app/contracts/basket/list-basket-item';
 import { List_Product } from 'src/app/contracts/list_products';
+import { BasketService } from 'src/app/services/common/models/basket.service';
 import { FileService } from 'src/app/services/common/models/file.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from 'src/app/services/ui/custom-toastr.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent extends BaseComponent implements OnInit {
   
   /**
    *
    */
-  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute,private fileService:FileService) 
+  constructor(spinner:NgxSpinnerService,private productService:ProductService,private activatedRoute:ActivatedRoute,
+    private fileService:FileService,private basketService:BasketService,private customToastrService:CustomToastrService) 
   {
-    
+    super(spinner);
   }
 
 
@@ -79,5 +86,17 @@ export class ListComponent implements OnInit {
     
   }
 
+  async addToBasket(product:List_Product){
+    this.showSpinner(SpinnerType.BallAtom);
+    let _basketItem:CreateBasketItem = new CreateBasketItem();
+    _basketItem.productId= product.id;
+    _basketItem.quantity=1;
+    await this.basketService.add(_basketItem);
+    this.hideSpinner(SpinnerType.BallAtom);
+    this.customToastrService.message(`${product.name} sepete eklenmiştir`,'Sepete Eklendi',{
+      messageType : ToastrMessageType.Success,
+      position: ToastrPosition.TopLeft
+    })
+  }
 
 }

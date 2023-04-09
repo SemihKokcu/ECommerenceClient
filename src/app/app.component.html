@@ -69,8 +69,7 @@
           <div class="" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item p-2">
-                <a class="nav-link active" aria-current="page" routerLink="basket"
-                  >Sepet</a>
+               <button class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Sepet</button>
               </li>
               <li *ngIf="!authService.isAuthenticated" class="nav-item p-2">
                 <a class="nav-link active btn btn-outline" aria-current="page" routerLink="register"
@@ -106,3 +105,4 @@
 <ngx-spinner size="default" name="s2" type="ball-scale-multiple"></ngx-spinner>
 <ngx-spinner size="default" name="s3" type="ball-spin-fade-rotating"></ngx-spinner>
 
+<app-baskets> </app-baskets>
