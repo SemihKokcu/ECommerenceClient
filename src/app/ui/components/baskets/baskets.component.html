@@ -1,5 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
           <div class="modal-content">
             <div class="modal-header border-bottom-0">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -25,7 +24,7 @@
                         {{i+1}}
                     </td>
                     <td>{{basketItem.name}}</td>
-                    <td>{{basketItem.price|currency:'₺'}</td>
+                    <td>{{basketItem.price|currency:'₺'}}</td>
                     <td class="qty"><input type="text" class="form-control" id="input1" [value]="basketItem.quantity" data-id="{{basketItem.basketItemId}}" (change)="changeQauntity($event)"></td>
                     <td>{{basketItem.quantity * basketItem.price|currency:'₺'}}</td>
                     <td>
@@ -47,5 +46,3 @@
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
               <button type="button" class="btn btn-success">Alışverişi Tamamla</button>
             </div>
-          </div>
-  </div>

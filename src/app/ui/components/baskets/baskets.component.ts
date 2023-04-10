@@ -18,6 +18,7 @@ export class BasketsComponent extends BaseComponent implements OnInit {
 basketItems:ListBasketItem[];
 
   async ngOnInit():Promise<void> {
+
     this.showSpinner(SpinnerType.BallAtom);
     this.basketItems = await this.basketService.get();
     this.hideSpinner(SpinnerType.BallAtom);
@@ -39,8 +40,6 @@ basketItems:ListBasketItem[];
     this.showSpinner(SpinnerType.BallAtom)
       await this.basketService.remove(basketItemId)
       $("."+basketItemId).fadeOut(500,()=>{this.hideSpinner(SpinnerType.BallAtom)})
-
-      
 
   }
 
