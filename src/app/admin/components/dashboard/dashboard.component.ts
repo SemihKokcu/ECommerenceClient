@@ -17,14 +17,21 @@ export class DashboardComponent extends BaseComponent implements OnInit {
   {
     super(spinner);
     singalRService.start(HubUrls.ProductHub )
+    singalRService.start(HubUrls.OrderHub)
   }
 
   ngOnInit(): void 
   {
     this.singalRService.on(ReceiveFunctions.ProductAddedMessageRecieve,message=>{
-      this.alertify.message(message,{messageType:MessageType.Notify,position:Position.TopRight})
+      this.alertify.message(message,{messageType:MessageType.Notify,position:Position.TopCenter})
+    })
+
+    this.singalRService.on(ReceiveFunctions.OrderAddedMessageRecieve,message=>{
+      this.alertify.message(message,{messageType:MessageType.Notify,position:Position.TopCenter})
     })
   }
+
+
   m(){
     this.alertify.message("message",{
       messageType:MessageType.Success,

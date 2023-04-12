@@ -45,6 +45,7 @@ import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-
   ],
   providers: [ // provider tanımladık @Inject("baseURl")
     {provide:"baseUrl",useValue:"https://localhost:7243/api",multi:true},
+    {provide:"baseSignalRUrl",useValue:"https://localhost:7243/",multi:true},
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
