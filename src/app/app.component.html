@@ -69,7 +69,7 @@
           <div class="" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item p-2">
-               <button (click)="loadComponent()" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Sepet</button>
+               <button (click)="loadComponent()" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#basketModal" type="submit">Sepet</button>
               </li>
               <li *ngIf="!authService.isAuthenticated" class="nav-item p-2">
                 <a class="nav-link active btn btn-outline" aria-current="page" routerLink="register"
@@ -107,7 +107,7 @@
 
 
 <!--bir şema oluşturu çağrıınca gelir-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="basketModal" tabindex="-1"  aria-hidden="true">
   <div class="modal-dialog modal-xl " role="document">
 <ng-template appDynamicLoadComponent>
   

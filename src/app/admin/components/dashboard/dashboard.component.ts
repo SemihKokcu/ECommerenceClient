@@ -16,17 +16,17 @@ export class DashboardComponent extends BaseComponent implements OnInit {
   constructor(spinner:NgxSpinnerService,private alertify:AlertifyService,private singalRService:SignalRService) 
   {
     super(spinner);
-    singalRService.start(HubUrls.ProductHub )
-    singalRService.start(HubUrls.OrderHub)
+    // singalRService.start(HubUrls.ProductHub)
+    // singalRService.start(HubUrls.OrderHub)
   }
 
   ngOnInit(): void 
   {
-    this.singalRService.on(ReceiveFunctions.ProductAddedMessageRecieve,message=>{
+    this.singalRService.on(HubUrls.ProductHub,ReceiveFunctions.ProductAddedMessageRecieve,message=>{
       this.alertify.message(message,{messageType:MessageType.Notify,position:Position.TopCenter})
     })
 
-    this.singalRService.on(ReceiveFunctions.OrderAddedMessageRecieve,message=>{
+    this.singalRService.on(HubUrls.OrderHub,ReceiveFunctions.OrderAddedMessageRecieve,message=>{
       this.alertify.message(message,{messageType:MessageType.Notify,position:Position.TopCenter})
     })
   }

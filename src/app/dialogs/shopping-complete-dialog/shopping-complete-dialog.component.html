@@ -1,0 +1,11 @@
+<p>basket-item-remove-dialog works!</p>
+<h1 mat-dialog-title>Dikkat</h1>
+<div mat-dialog-content>
+  <p>Alışverişi tamamlamak istediğinizden emin misimiz?</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="complete()">Evet</button>
+  <button mat-button (click)="close()">Hayır</button>
+
+</div>
