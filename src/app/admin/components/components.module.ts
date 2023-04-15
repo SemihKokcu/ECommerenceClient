@@ -8,7 +8,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     CommonModule,
     CustomersModule,

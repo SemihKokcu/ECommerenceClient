@@ -6,8 +6,17 @@
 
 .product-create{
   margin: 5px 5px 5px;
+  display: flex;
+  justify-content: center;
 }
 
-.product-create-btn{
-  margin-left: 15%;
+
+.create{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+

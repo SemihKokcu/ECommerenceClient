@@ -1,20 +1,23 @@
-<mat-form-field appearance="fill">
-  <mat-label>Name</mat-label>
-  <input #txtName matInput class="product-create" />
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label>Stock</mat-label>
-  <input #txtStock class="product-create" type="number" min="0" value="0" matInput />
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label >Price</mat-label>
-  <input #txtPrice class="product-create" type="number" min="0" value="0" matInput />
-</mat-form-field>
-
-<button (click)="create(txtName,txtPrice,txtStock)"  class="btn product-create-btn" mat-raised-button color="primary">Create Product</button>
-
-<hr/>
-
-<!-- <app-file-upload [options]="fileUploadOptions"></app-file-upload> -->
+<div class="create">
+  
+  <mat-form-field appearance="standard">
+    <mat-label>Name</mat-label>
+    <input #txtName matInput class="product-create" />
+  </mat-form-field>
+  
+  <mat-form-field appearance="standard">
+    <mat-label>Stock</mat-label>
+    <input #txtStock class="product-create" type="number" min="0" value="0" matInput />
+  </mat-form-field>
+  
+  <mat-form-field appearance="standard">
+    <mat-label >Price</mat-label>
+    <input #txtPrice class="product-create" type="number" min="0" value="0" matInput />
+  </mat-form-field>
+  
+  <button (click)="create(txtName,txtPrice,txtStock)"  class="btn product-create-btn" mat-raised-button color="primary">Create Product</button>
+  
+  
+  <!-- <app-file-upload [options]="fileUploadOptions"></app-file-upload> -->
+  
+</div>
