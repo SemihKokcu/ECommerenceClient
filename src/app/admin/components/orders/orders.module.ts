@@ -11,6 +11,7 @@ import { DialogModule } from '../../../dialogs/dialog.module';
 import { NgModule } from '@angular/core';
 import { OrdersComponent } from './orders.component';
 import { DeleteModule } from 'src/app/directives/admin/delete.directive.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -25,7 +26,7 @@ import { DeleteModule } from 'src/app/directives/admin/delete.directive.module';
       { path: "", component: OrdersComponent }
     ]),
     MatSidenavModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule,
-    DialogModule,DeleteModule
+    DialogModule,DeleteModule,MatIconModule
   ]
 })
 export class OrdersModule { }

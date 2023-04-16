@@ -1,0 +1,17 @@
+.order-detail-table {
+    width: 100%;
+  }
+  
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 5px solid ;
+    border-top: 5px solid ;
+    cursor: pointer;
+  }
+  
+  .mat-mdc-row::hover .mat-mdc-cell {
+    border-color: black;
+  }
+  
+  .order-detail-row-is-clicked {
+    font-weight: bold;
+  }
