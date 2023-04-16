@@ -1,36 +1,74 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-1"></div>
-    <div class="col-md-10">
-      <div class="product-card" *ngFor="let product of products;">
-        <div class="card col-md-3 col-3 mt-5">
-          <img
+    <div class="col-3">
+      <app-category></app-category>
+      
+    </div>
+    <div class="col-md-9">
+     <div class="row">
+      <div class="col-md-4" *ngFor="let product of products;">
+        <div class="card mb-4 product-wap rounded-0">
+            <div class="card rounded-0">
+                <img
+                 class="card-img rounded-0 img-fluid"
+                 *ngIf="product.productImageFiles.length" src="{{baseStroageUrl.url}}/{{product.imagePath}}"
+                  width="auto"
+                  height="auto"/>
+                  <img
 
-            class="mx-auto img-thumbnail"
-            *ngIf="!product.productImageFiles.length" src="../../../../../assets/image-not-available.png"
-            width="auto"
-            height="auto"
-          />
-          <img
-          class="mx-auto img-thumbnail"
-          *ngIf="product.productImageFiles.length" src="{{baseStroageUrl.url}}/{{product.imagePath}}"
-          width="auto"
-          height="auto"
-          />
-          <div class="card-body text-center mx-auto">
-            <div class="cvp">
-              <h3 class="card-title font-weight-bold">{{product.name}}</h3>
-              <p class="card-text">{{product.price|currency:'₺'}}</p>
-              <p class="card-text">Stock:{{product.stock}}</p>
-              <a href="#" class="btn details px-auto">Detaylar</a><br />
-              <a class="btn cart px-auto" (click)="addToBasket(product)">Sepete Ekle</a>
+                  class="mx-auto img-thumbnail"
+                  *ngIf="!product.productImageFiles.length" src="../../../../../assets/image-not-available.png"
+                  width="auto"
+                  height="auto"
+                />
+                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                    <ul class="list-unstyled">
+                        <li><a class="btn btn-success text-white" href="shop-single.html"><mat-icon>favorite</mat-icon></a></li>
+                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><mat-icon>visibility</mat-icon></a></li>
+                        <li><a (click)="addToBasket(product)" class="btn btn-success text-white mt-2"><mat-icon>shopping_cart</mat-icon></a></li>
+                    </ul>
+                </div>
             </div>
+            <div class="card-body">
+              <h3 class="h3 text-decoration-none">{{product.name}}</h3>
+              <p class="mb-0">Price:{{product.price|currency:'₺'}}</p>
+              <p class="card-text mt-1">Stock:{{product.stock}}</p>
           </div>
+          
+          
+        </div>
+    </div>
+     </div>
+    </div>
+  </div>
+
+  <!-- <div class="product-card" *ngFor="let product of products;">
+    <div class="card col-md-3 col-3 mt-5">
+      <img
+
+        class="mx-auto img-thumbnail"
+        *ngIf="!product.productImageFiles.length" src="../../../../../assets/image-not-available.png"
+        width="auto"
+        height="auto"
+      />
+      <img
+      class="mx-auto img-thumbnail"
+      *ngIf="product.productImageFiles.length" src="{{baseStroageUrl.url}}/{{product.imagePath}}"
+      width="auto"
+      height="auto"
+      />
+      <div class="card-body text-center mx-auto">
+        <div class="cvp">
+          <h3 class="card-title font-weight-bold">{{product.name}}</h3>
+          <p class="card-text">{{product.price|currency:'₺'}}</p>
+          <p class="card-text">Stock:{{product.stock}}</p>
+          <a href="#" class="btn details px-auto">Detaylar</a><br />
+          <a class="btn cart px-auto" (click)="addToBasket(product)">Sepete Ekle</a>
         </div>
       </div>
     </div>
-    <div class="col-1"></div>
-  </div>
+  </div> -->
+
   <div class="row">
     <div class="col-md-2">
         

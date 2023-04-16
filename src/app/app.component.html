@@ -1,8 +1,12 @@
-<div class="container">
+<div class="container-fluid">
+ <div class="container">
   <div class="row">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand btn btn-outline" routerLink="">My Book World</a>
+        <a class="navbar-brand" href="#">
+          <img width="100px" src="../assets/logo.png" alt="Logo">
+       </a>
+       
         <button
           class="navbar-toggler"
           type="button"
@@ -17,17 +21,23 @@
         <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item p-2">
-              <a class="nav-link active" aria-current="page" routerLink="">Ana Sayfa</a>
+              <button class="btn btn-outline d-flex align-items-center" aria-current="page" routerLink="">
+                <div class="d-flex align-items-center">
+                  <mat-icon class="me-2">home</mat-icon>
+                  <span>Ana Sayfa</span>
+                </div>
+              </button>
             </li>
+            
             <li class="nav-item p-2">
-              <a class="nav-link active" aria-current="page" routerLink="products"
-                >Ürünler</a
-              >
+              <button class="btn btn-outline d-flex align-items-center" aria-current="page" routerLink="products">
+                <div class="d-flex align-items-center">
+                  <mat-icon class="me-2">shopping_bag</mat-icon>
+                  <span>Ürünler</span>
+                </div>
+              </button>
             </li>
-
-
-
-
+            
             <!-- <li class="nav-item dropdown p-2">
               <a
                 class="nav-link dropdown-toggle"
@@ -46,31 +56,47 @@
               </ul>
             </li> -->
           </ul>
-
-
           <form class="d-flex" role="search">
-            <input
-            style="width: 40vh;"
-              class="form-control me-3"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: transparent; border: none;">
+                  <mat-icon aria-hidden="true">search</mat-icon>
+                </span>
+              </div>
+              <input style="width: 40vh;" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </div>
           </form>
+          
+
+          
+          
+          
+          
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li  class="nav-item p-2">
-              <a *ngIf="authService.isAuthenticated" class="nav-link active" aria-current="page" routerLink="/admin"
-                >Yönetim Paneli</a>
+            <li class="nav-item p-2">
+              <button *ngIf="authService.isAuthenticated" class="btn btn-outline d-flex align-items-center" aria-current="page" routerLink="/admin">
+                <div class="d-flex align-items-center">
+                  <mat-icon class="me-2">dashboard</mat-icon>
+                  <span class="align-middle">Yönetim Paneli</span>
+                </div>
+              </button>
             </li>
           </ul>
+          
+          
 
 
 
           <div class="" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item p-2">
-               <button (click)="loadComponent()" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#basketModal" type="submit">Sepet</button>
+                <button (click)="loadComponent()" class="btn btn-outline d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#basketModal" type="submit">
+                  <mat-icon class="me-2">shopping_cart</mat-icon>
+                  <span class="align-middle">Sepet</span>
+                </button>
               </li>
+              
+              
               <li *ngIf="!authService.isAuthenticated" class="nav-item p-2">
                 <a class="nav-link active btn btn-outline" aria-current="page" routerLink="register"
                   >Kayıt Ol</a
@@ -92,6 +118,7 @@
       </div>
     </nav>
   </div>
+ </div>
   <div class="row">
     <!-- <div class="col-md-1"> </div> -->
       <div class="col-md-12">
@@ -100,6 +127,98 @@
     <!-- <div class="col-md-1"> </div> -->
   </div>
 </div>
+
+<div class="mt-5">
+  <footer class="bg-dark" id="tempaltemo_footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-success border-bottom pb-3 border-light logo">Semih's Shop</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        123 Consectetur at ligula 10660
+                    </li>
+                    <li>
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                    <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
+                    <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
+                    <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
+                    <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
+                    <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
+                    <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none" href="#">Home</a></li>
+                    <li><a class="text-decoration-none" href="#">About Us</a></li>
+                    <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                    <li><a class="text-decoration-none" href="#">FAQs</a></li>
+                    <li><a class="text-decoration-none" href="#">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row text-light mb-4">
+            <div class="col-12 mb-3">
+                <div class="w-100 my-3 border-top border-light"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-100 bg-black py-3">
+      <div class="container">
+          <div class="row pt-3">
+              <div class="col-12">
+                  <p class="text-center text-light">
+                      Copyright &copy; 2023 Semih's Shop 
+                      | Designed by <a rel="sponsored" target="_blank">Semih</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+</footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <ngx-spinner size="default" name="s1" type="ball-atom"></ngx-spinner>
 <ngx-spinner size="default" name="s2" type="ball-scale-multiple"></ngx-spinner>

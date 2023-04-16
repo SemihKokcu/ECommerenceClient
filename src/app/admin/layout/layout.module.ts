@@ -13,7 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         CommonModule,
         ComponentsModule,
         RouterModule,
-        MatSidenavModule
+        MatSidenavModule,
     ],
     exports:[
       LayoutComponent

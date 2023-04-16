@@ -18,6 +18,7 @@ import { LoginComponent } from './ui/components/login/login.component';
 import { GoogleLoginDirective } from './directives/common/google-login.directive';
 import { HttpErrorHandlerInterceptorService } from './services/common/http-error-handler-interceptor.service';
 import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-component.directive';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-
         allowedDomains:["localhost:7243"],
       }
     }),
+    MatIconModule,
    
   ],
   providers: [ // provider tanımladık @Inject("baseURl")

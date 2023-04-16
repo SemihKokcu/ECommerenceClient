@@ -6,6 +6,7 @@ import { HttpClientService } from './services/common/http-client.service';
 import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-component.directive';
 import { DynamicLoadComponentService } from './services/common/dynamic-load-component.service';
 import { ComponentType } from './services/common/dynamic-load-component.service';
+
 declare var $:any // jquery denmek için
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ declare var $:any // jquery denmek için
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+
 
   @ViewChild(DynamicLoadComponentDirective,{static:true})
   dynamicLoadComponentDirective:DynamicLoadComponentDirective;

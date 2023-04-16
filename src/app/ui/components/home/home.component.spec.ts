@@ -21,3 +21,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+button.carousel-control-prev mat-icon {
+  font-size: 24px; /* icon boyutu */
+  color: black; /* icon rengi */
+}
